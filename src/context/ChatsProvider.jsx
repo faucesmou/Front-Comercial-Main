@@ -134,7 +134,7 @@ const ChatsProvider = ({ children }) => {
         black: chat.cotizacion.black,
         titanium: chat.cotizacion.titanium,
       }
-      const url = `https://comercial.createch.com.ar/pruebas/mensaje-inicial?telefono=${chat.telefono}&condicion=${chat.condicion}&operador=${usuario._id}&categoria=${chat.categoria}`
+      const url = `${process.env.VITE_BACKEND_URL}/pruebas/mensaje-inicial?telefono=${chat.telefono}&condicion=${chat.condicion}&operador=${usuario._id}&categoria=${chat.categoria}`
       const { data } = await axios.post(url,objeto);
 
       const index = chats.findIndex(
