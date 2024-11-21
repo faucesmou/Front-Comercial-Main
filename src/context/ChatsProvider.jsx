@@ -130,15 +130,20 @@ const ChatsProvider = ({ children }) => {
       // cambio de la funcionalidad del chat inicial
       // enviarMsj(objSalida);
       const objeto = {
-        platinum: chat.cotizacion.platinum,
-        black: chat.cotizacion.black,
-        titanium: chat.cotizacion.titanium,
+        platinum: chat.cotizacion.platinum || 'valor_default',
+        black: chat.cotizacion.black || 'valor_default',
+        titanium: chat.cotizacion.titanium || 'valor_default',
       }
-      const url = `https://fincapropia.createch.com.ar/pruebas/mensaje-inicial?telefono=${chat.telefono}&condicion=${chat.condicion}&operador=${usuario._id}&categoria=${chat.categoria}`
+      console.log('Backend URL usando process.env---->:', process.env.VITE_BACKEND_URL);
+      console.log('Backend URL usando import.meta.env de amplify--->:', import.meta.env.VITE_BACKEND_URL);
+
+
+      const cosoParaURL = import.meta.env.VITE_BACKEND_URL
+      const url = `${cosoParaURL}/pruebas/mensaje-inicial?telefono=${chat.telefono}&condicion=${chat.condicion}&operador=${usuario._id}&categoria=${chat.categoria}`
       const { data } = await axios.post(url,objeto);
 
       /* ${process.env.VITE_BACKEND_URL} */
-      
+
       const index = chats.findIndex(
         (element) => element.telefono === objSalida.from
       );
@@ -148,7 +153,13 @@ const ChatsProvider = ({ children }) => {
       }
     } catch (error) {
       console.log("Tuvimos un error desde el FrontEnd>> este es el error:", error);
-
+ console.error("Error en la solicitud DETALLES---->>:", {
+    mensaje: error.message,
+    url: error.config?.url,
+    data: error.config?.data,
+    status: error.response?.status,
+    respuesta: error.response?.data,
+  });
     }
   };
 
