@@ -134,9 +134,11 @@ const ChatsProvider = ({ children }) => {
         black: chat.cotizacion.black,
         titanium: chat.cotizacion.titanium,
       }
-      const url = `${process.env.VITE_BACKEND_URL}/pruebas/mensaje-inicial?telefono=${chat.telefono}&condicion=${chat.condicion}&operador=${usuario._id}&categoria=${chat.categoria}`
+      const url = `https://fincapropia.createch.com.ar/pruebas/mensaje-inicial?telefono=${chat.telefono}&condicion=${chat.condicion}&operador=${usuario._id}&categoria=${chat.categoria}`
       const { data } = await axios.post(url,objeto);
 
+      /* ${process.env.VITE_BACKEND_URL} */
+      
       const index = chats.findIndex(
         (element) => element.telefono === objSalida.from
       );
