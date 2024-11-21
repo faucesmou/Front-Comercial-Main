@@ -134,7 +134,7 @@ const ChatsProvider = ({ children }) => {
         black: chat.cotizacion.black || 'valor_default',
         titanium: chat.cotizacion.titanium || 'valor_default',
       }
-      console.log('Backend URL usando process.env---->:', process.env.VITE_BACKEND_URL);
+     /*  console.log('Backend URL usando process.env---->:', process.env.VITE_BACKEND_URL); */
       console.log('Backend URL usando import.meta.env de amplify--->:', import.meta.env.VITE_BACKEND_URL);
 
 
