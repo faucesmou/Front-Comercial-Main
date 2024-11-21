@@ -145,7 +145,8 @@ const ChatsProvider = ({ children }) => {
         setChats([chat, ...chats]);
       }
     } catch (error) {
-      console.log(error);
+      console.log("Tuvimos un error desde el FrontEnd>> este es el error:", error);
+
     }
   };
 
