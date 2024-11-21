@@ -9,110 +9,11 @@ import { useParams, useNavigate, useLocation } from "react-router-dom";
 const plantillas = [
   { 
     id: 0, 
-    name: "Inicio", 
-    description: `Te doy la bienvenida a la Primera Prepaga Totalmente Digital del País 😊. 
-    Te escribo porque completaste el formulario con tus datos en nuestra página.
-    ¿Estás buscando una opción de medicina prepaga que sea accesible y completamente digital?
-    Ofrecemos el mejor servicio y los mejores precios del país. 
-    ¿Estás disponible para que te cotice?`, 
+    name: "plantilla1", 
+    description: `A partir de ahora podés acceder a beneficios inéditos! 😀😀😀
+Gracias por elegirnos!`, 
     unavailable: false 
   },
-  { 
-    id: 1, 
-    name: "Residual", 
-    description: `¡Bienvenido a Andes Salud 😊, la primera prepaga digital del país!
-    Afiliate sin moverte de tu casa 📲. ¡Tenemos los mejores precios del país!
-    ¿Puedo contarte sobre los distintos planes que tenemos para ofrecerte y sus beneficios?
-    ¡Aguardo tu respuesta para poder asesorarte!
-    Muchas gracias😊`,
-    unavailable: false 
-  },
-  {
-    id: 2,
-    name: "Cordoba",
-    description: `¿Estás en relación de dependencia y sos soltero o soltera? ¿Estás ganando $750.000 mensuales?
-    ¡Podés acceder a cualquiera de nuestros planes prestacionales solo con tu aporte!
-
-    ¿Estás en relación de dependencia y tenés grupo familiar? ¿Estás ganando $1.100.000 mensuales?
-    ¡Podés acceder a cualquiera de nuestros planes prestacionales! ¡Desde $32.000 para todo el grupo familiar!
-
-    ¡Cotizá y comprobalo vos mismo!
-    No te pierdas la oportunidad de ser parte de la primera prepaga totalmente digital del país!`,
-    unavailable: false
-  },
-  {
-    id: 3,
-    name: "Saludo Inicial",
-    description: `¡Hola! Es un gusto poder asesorarte, me contacto de Andes Salud debido a que dejaste tus datos en nuestra plataforma.
-    ¿Estás disponible para que repasemos los planes que tenemos para ofrecerte? Gracias.
-    `
-  },
-  {
-    id: 4,
-    name: "Ingreso",
-    description: `¿Cómo querés adherirte? ¿Trabajás en relación de dependencia, sos monotributista o buscás hacerlo de forma particular?
-    `
-  },
-  {
-    id: 5,
-    name: "cuyo",
-    description: `¿Estás en relación de dependencia y sos soltero? ¿Estás ganando $750.000 mensuales?
-    ¡Podés acceder a cualquiera de nuestros planes prestacionales, solo con tu aporte!
-
-    ¿Estás en relación de dependencia y tenés grupo familiar? ¿Estás ganando $1.100.000 mensuales?
-    ¡Podés acceder a cualquiera de nuestros planes prestacionales desde $7.000, para todo el grupo familiar!
-
-    ¡Cotizá y comprobalo vos mismo!
-    No te pierdas la oportunidad de ser parte de la primera prepaga totalmente digital del país.
-    `
-  },
-  {
-    id: 6,
-    name: "coti cuyo",
-    description: `Teniendo en cuenta la información que nos enviaste, esta sería la cotización para vos:
-
-    Plan Titanium: {{Titanium}}
-    Plan Black: {{Black}}
-    Plan Platinum: {{Platinum}}
-
-    ¿Querés que avancemos con alguno? ¡Si tenés alguna duda, acá estoy!
-    `
-  },
-  {
-    id: 7,
-    name: "coti cba",
-    description: `Teniendo en cuenta la información que nos enviaste, esta sería la cotización para vos:
-
-    Plan Titanium: {{Titanium}}
-    Plan Black: {{Black}}
-
-    ¿Querés que avancemos con alguno? ¡Si tenés alguna duda, acá estoy!
-    `
-  },
-  {
-    id: 8,
-    name: "cierre",
-    description: `¡Hola! Tus datos han sido ingresados correctamente en el sistema de Afiliaciones. 
-    Te pido, por favor, que estés atento al mensaje de WhatsApp donde se coordinará la llamada para la verificación telefónica de los datos afiliatorios.
-    Saludos cordiales.
-    `
-  },
-  {
-    id: 9,
-    name: "cotizado",
-    description: `¡Hola! Me contacto nuevamente desde Andes Salud para conocer tu opinión sobre la cotización enviada. 
-
-    Somos la primera Prepaga 100% digital del País. 
-    ✔️Precios a tu alcance
-    ✔️Adhesión rápida y sencilla
-    ✔️Principales Clínicas y Sanatorios de tu ciudad
-    ✔️App móvil de Autogestión y Credencial digital
-    ✔️PIXI: Asistente virtual las 24 hs
-
-    ¿Qué plan vas a elegir para el cuidado de tu salud y el de tu familia?
-
-    ¡Espero tu mensaje, saludos!`
-  }
 ];
 
 const ModalChatInicial = () => {
