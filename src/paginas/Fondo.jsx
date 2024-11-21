@@ -5,7 +5,7 @@ const Fondo = () => {
     <div className="items-center bg-white h-full flex justify-center">
       {/* <h1>Fondo con imagen de Andes</h1> */}
       <img
-        src="../andes.jpg"
+        src="../logo2.jpg"
         alt="imagen andes"
         className="rounded-full w-25 h-25"
       />
