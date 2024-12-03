@@ -8,10 +8,16 @@ import { useParams, useNavigate, useLocation } from "react-router-dom";
 
 const plantillas = [
   { 
-    id: 0, 
+    id: 1, 
     name: "plantilla1", 
     description: `A partir de ahora podés acceder a beneficios inéditos! 😀😀😀
 Gracias por elegirnos!`, 
+    unavailable: false 
+  },
+  { 
+    id: 0, 
+    name: "bienvenido_a_finca_propia", 
+    description: `dale negrito activate`, 
     unavailable: false 
   },
 ];
