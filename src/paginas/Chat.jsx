@@ -76,6 +76,10 @@ const usuarios = [
     id: "66e43a8a9abfee773069c98e",
     nombre: "prueba"
   },
+  {
+    id: "673361c5dd2e609c5d217237",
+    nombre: "Gonzalo Morresi"
+  },
   
 ]
 
@@ -281,6 +285,7 @@ const Chat = () => {
     setLista([...lista, objetoMsj]);
     setMensaje("");
   };
+  //hola
 
   const handleFileInputClick = () => {
     document.getElementById("fileInput").click();
@@ -564,6 +569,7 @@ const Chat = () => {
                 >
                   Enviar
                 </button>
+
                 <button 
                   type="button"
                   className="ml-1 p-3 bg-gray-400 hover:bg-gray-700 text-white text-md rounded-lg font-semibold transition ease-out duration-150 cursor-pointer"
