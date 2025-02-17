@@ -9,7 +9,7 @@ const HeaderHome = () => {
       <div className="header__contenedor">
         <div className="header__barra">
           <div className="header__logo">
-            <img src="../../glass.png" alt="logo finca" />
+            <img src="../../logoFinca.png" alt="logo finca" />
           </div>
           <nav className="navegacion">
             <Link to={"/"} className="navegacion__link">

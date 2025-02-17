@@ -83,6 +83,9 @@ const usuarios = [
   
 ]
 
+/* EN ESTE ARCHIVO TENEMOS EL HEADER CON LAS OPCIONES  */
+
+
 
 const Chat = () => {
   const [rootPath, setRootPath] = useState("chats");
@@ -285,7 +288,7 @@ const Chat = () => {
     setLista([...lista, objetoMsj]);
     setMensaje("");
   };
-  //hola
+  //hola gonzalito
 
   const handleFileInputClick = () => {
     document.getElementById("fileInput").click();
@@ -423,7 +426,7 @@ const Chat = () => {
                 <p className="font-medium">
                   {infoChat.nombre ? infoChat.nombre : "Customer"}
                 </p>
-                <small className="text-gray-100 font-light bg-indigo-400 p-1 rounded-lg">
+                <small className="text-gray-100 font-light bg-blue-400 p-1 rounded-lg">
                   Condición: {infoChat.condicion}
                 </small>
                 {elemento === "rechazado" && (
@@ -495,14 +498,14 @@ const Chat = () => {
               <button
                 // onClick={handleModalPlantillaRes}
                 onClick={handleModalChatInicial}
-                className="w-48 ml-3 p-3 bg-indigo-300 hover:bg-indigo-600 text-white text-md rounded-lg font-semibold transition ease-out duration-150 cursor-pointer"
+                className="w-48 ml-3 p-3 bg-blue-400 hover:bg-blue-700 text-white text-md rounded-lg font-semibold transition ease-out duration-150 cursor-pointer"
               >
                 Plantilla
               </button>
               <button
                 // onClick={handleModalPlantillaRes}
                 onClick={() => setBtnNota(true)}
-                className="w-48 ml-3 p-3 bg-indigo-300 hover:bg-indigo-600 text-white text-md rounded-lg font-semibold transition ease-out duration-150 cursor-pointer"
+                className="w-48 ml-3 p-3 bg-blue-400 hover:bg-blue-700 text-white text-md rounded-lg font-semibold transition ease-out duration-150 cursor-pointer"
               >
                 Nota
               </button>

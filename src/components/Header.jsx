@@ -9,7 +9,7 @@ const Header = () => {
     <header className="bg-indigo-400 border-b border-stone-300 px-4 py-5">
       <div className="md:flex md:justify-between">
         <h2 className="text-4xl text-center font-black text-white">
-          Andes <span className="text-gray-700">Comercial</span>
+          Finca Propia <span className="text-gray-700">Comercial</span>
         </h2>
         <input
           type="search"

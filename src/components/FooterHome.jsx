@@ -7,7 +7,7 @@ const FooterHome = () => {
         <img src="../../fav.png" alt="" />
       </div>
       <p className="footer__texto">
-        Andes Salud Todos los derechos reservados &copy;
+        Finca Propia Todos los derechos reservados &copy;
       </p>
     </footer>
   );

@@ -104,7 +104,7 @@ const Login = () => {
       >
         <div>
           <h2 className="text-sky-600 text-center mt-3 font-bold text-3xl capitalize">
-            Comercial <span className="text-slate-700 ml-1">Andes Salud</span>
+            Comercial <span className="text-slate-700 ml-1">Finca Propia</span>
           </h2>
         </div>
         <div className="my-5">

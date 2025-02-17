@@ -122,8 +122,8 @@ export default function HeaderUI() {
       { name: "Residual", href: "/residual", current: btnResidual },
       // { name: "Temporal", href: "/temporal", current: false },
       { name: "Rechazado", href: "/rechazado", current: btnRechazado },
-      { name: "CotiBot", href: "/cotizado", current: btnCotizado },
-      { name: "Cotizados", href: "/cotiasesor", current: btnCotiasesor },
+    /*   { name: "CotiBot", href: "/cotizado", current: btnCotizado }, */
+     /*  { name: "Cotizados", href: "/cotiasesor", current: btnCotiasesor }, */
       { name: "Usuarios", href: "/usuarios", current: btnUsers }
       /*  {
         name: "Verificaciones",
@@ -164,7 +164,7 @@ export default function HeaderUI() {
     setMensajes({});
   };
   return (
-    <Disclosure as="nav" className="bg-gray-800 m-0 h-16 fixed w-full">
+    <Disclosure as="nav" className="bg-gray-900 m-0 h-16 fixed w-full">
       {({ open }) => (
         <>
           <div className="m-0 mx-auto max-w-7xl px-2 sm:px-3 lg:px-3">
@@ -346,13 +346,13 @@ export default function HeaderUI() {
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
                   <div>
-                    <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                    <Menu.Button className="flex rounded-full">
                       <span className="sr-only">Open user menu</span>
                       <img
-                        className="h-8 w-8 rounded-full"
+                        className="h-8 w-13 rounded-full"
                         // src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                        src="../../fav.png"
-                        alt="logo andes"
+                        src="../../perfilSimple1.png"
+                        alt="logo Perfil"
                       />
                     </Menu.Button>
                   </div>
