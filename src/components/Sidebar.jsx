@@ -159,10 +159,16 @@ const Sidebar = () => {
         <div className="overflow-scroll  scrollbar-hide mt-4 drop-shadow-sm h-3/4 border-b border-t border-stone-400 pt-4 pb-10 mb-2">
           {arrBusqueda.length > 0
             ? arrBusqueda.map((chat) => (
+              <>
                 <Item key={chat?._id ? chat._id : chat.telefono} chat={chat} />
+               
+              </>
               ))
             : chats.map((chat) => (
-                <Item key={chat?._id ? chat._id : chat.telefono} chat={chat} />
+              <>
+              <Item key={chat?._id ? chat._id : chat.telefono} chat={chat} nombre={chat.nombre} />
+            
+                </>
               ))}
         </div>
       </aside>

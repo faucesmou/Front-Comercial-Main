@@ -8,6 +8,7 @@ import { jwtDecode } from "jwt-decode";
 
 const Item = ({ chat }) => {
   
+  console.log('el chat recibido ES-->', chat)
   const [noti, setNoti] = useState();
   const [flag, setFlag] = useState(false);
   const {
@@ -37,6 +38,7 @@ const Item = ({ chat }) => {
   const navigate = useNavigate();
   let fecha;
   let numeroLimpio;
+  let nombre2= chat.nombre
 
   let condOpe
   if('operador' in chat){
@@ -226,7 +228,7 @@ const Item = ({ chat }) => {
           <div className="w-full overflow-hidden">
             <div className="flex mb-1 items-center ">
               <p className="flex-grow">
-                {chat?.nombre ? chat.nombre : "Customer"}
+                {chat?.nombre ? chat.nombre : "Customer"}               
               </p>
               <small className="font-light text-sm">
                 {chat?.updatedAt ? fecha : fechaActual}
