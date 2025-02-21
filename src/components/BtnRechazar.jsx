@@ -34,7 +34,7 @@ const BtnRechazar = ({ ruta, telefono }) => {
   const handleClickButton = () => {
     try {
       handleModalRechazo();
-      return;
+    /*   return; */
       const chat = chats.find((chat) => chat.telefono === telefono);
       const chatsFiltrados = chats.filter((chat) => chat.telefono !== telefono);
       chat.condicion = "Rechazado";

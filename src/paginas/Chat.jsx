@@ -376,7 +376,7 @@ const Chat = () => {
   return (
     <>
       {mensajes.length > 0 ? (
-        <div className="bg-gray-200 w-full h-full">
+        <div className="bg-gray-200 w-full h-full" >
           {/*  header */}
           <div className="w-full px-12 border-b border-stone-300 h-1/5 flex justify-between items-center">
            {/*  {telefono === "5492614714607" && (
@@ -426,7 +426,7 @@ const Chat = () => {
               </div>
             
             
-              <div className="ml-2 self-center">
+              <div className="ml-2 self-center h-68" /* className="bg-gray-200 w-full h-68 mt-1 p-0" */>
                 <p className="font-medium">
                   {infoChat.nombre ? infoChat.nombre : "Customer"}
                 </p>

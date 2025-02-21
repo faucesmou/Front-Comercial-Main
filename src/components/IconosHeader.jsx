@@ -165,7 +165,8 @@ const IconosHeader = () => {
           {/* <Switch isOn={isOn} handleToggle={toggleSwitch} /> Jose */}
           <BtnVenta ruta={elemento} telefono={id} />
           <BtnRechazar ruta={elemento} telefono={id} />
-          <BtnCotizado ruta={elemento} telefono={id} />
+          {/* Botón cotizar --------------------------------------------------->>> */}
+     {/*      <BtnCotizado ruta={elemento} telefono={id} /> */}
 
           {/* <button
             className={`bg-gray-300 text-gray-100 mb-1 w-28 font-bold p-1 rounded-lg flex items-center justify-center ${

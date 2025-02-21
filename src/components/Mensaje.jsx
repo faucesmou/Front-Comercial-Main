@@ -104,8 +104,8 @@ const Mensaje = ({ mensaje }) => {
             <div className="flex justify-between">
               <p className="mb-1 flex">
                 {mensaje?.nota ? "NOTA" : mensaje?.msjSalida
-                  ? "Andes Comercial"
-                  : `${infoChat?.nombre ? infoChat.nombre : "Customer"}`}
+                  ? "Finca Propia Comercial"
+                  : `${infoChat?.nombre ? infoChat.nombre : "Cliente"}`}
                 {/*  {mensaje?.nota && (
                     <button 
                       className="ml-2"

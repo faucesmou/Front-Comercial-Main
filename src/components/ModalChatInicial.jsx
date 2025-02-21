@@ -9,15 +9,16 @@ import { useParams, useNavigate, useLocation } from "react-router-dom";
 const plantillas = [
   { 
     id: 1, 
-    name: "plantilla1", 
-    description: `A partir de ahora podés acceder a beneficios inéditos! 😀😀😀
+    name: "plantillaEjemplo", 
+    description: `A partir de ahora podés acceder a beneficios inéditos! 
 Gracias por elegirnos!`, 
     unavailable: false 
   },
   { 
     id: 0, 
     name: "bienvenido_a_finca_propia", 
-    description: `dale negrito activate`, 
+    description: `¡Bienvenido a Finca Propia!
+Viví la experiencia de tu vida, disfrutá ser dueño de tu propio vino. La expresión de tu Terroir con vinos intensos que nacen en el mejor viñedo. Compartí con amigos el fruto de tu producción y sé dueño de la tierra.`, 
     unavailable: false 
   },
 ];
@@ -28,7 +29,7 @@ const ModalChatInicial = () => {
   const [selected, setSelected] = useState(plantillas[0])
   const [telefono, setTelefono] = useState("");
   const [descripcion, setDescripcion] = useState(
-    "¡Hola! Te contactamos desde Andes Salud 😊. Nos dejaste tus datos en nuestra plataforma. ¿Estás disponible para que te envíe información acerca de las distintas opciones de cobertura médica que tenemos para ofrecerte?"
+    "¡Hola! Te contactamos desde Finca Propia 😊. Nos dejaste tus datos en nuestra plataforma. ¿Estás disponible para que te envíe información acerca de los distintos productos que tenemos para ofrecerte?"
   );
   const [black, setBlack] = useState("")
   const [titanium, setTitanium] = useState("")
@@ -109,7 +110,7 @@ const ModalChatInicial = () => {
 
   //TODO: verificar funcionalidad en este useEffect
   useEffect(() => {
-    const cadena = `¡Hola ${nombre}! Te contactamos desde Andes Salud 😊. Nos dejaste tus datos en nuestra plataforma. ¿Estás disponible para que te envíe información acerca de las distintas opciones de cobertura médica que tenemos para ofrecerte?`;
+    const cadena = `¡Hola ${nombre}! Te contactamos desde Finca Propia. Nos dejaste tus datos en nuestra plataforma. ¿Estás disponible para que te envíe información acerca de los distintos productos que tenemos para ofrecerte?`;
     setDescripcion(cadena);
   }, [nombre]);
 
