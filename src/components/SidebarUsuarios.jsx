@@ -15,7 +15,9 @@ const SidebarUsuarios = () => {
   const decoded = jwtDecode(token)
 
   // BOT COMERCIAL
-  const cond = decoded.id === '63ade3a73abf97575a693496'
+/*   const cond = decoded.id === '63ade3a73abf97575a693496' */
+
+  const cond = decoded.id === '673361c5dd2e609c5d217237' || decoded.id === '6732050494775e2b04367069'|| '67c21551b8fa93039e1a6224'
   // COMERCIAL PROPIA
   // const cond = decoded.id === '6732050494775e2b04367069'
 
