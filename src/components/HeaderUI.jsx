@@ -98,14 +98,16 @@ export default function HeaderUI() {
 
   useEffect(() => {
     if(usuario.roles[0].name === "admin"){
-      setInfoCero("1° y 2° Gestión")
-      setInfoUno("Chats de Ventas")
-      setInfoDos("Ingresos asesores")
+      setInfoCero("Chats abiertos")
+      setInfoUno("Clientes que están listos para comprar")
+      setInfoDos("Chats que han quedado en suspenso o sin respuesta")
       setInfoTres("Rechazos temporales y definitivos")
-      setInfoCuatro("Chats cotizados por el Bot")
+      setInfoCuatro("Gestión de usuarios")
+     /*  setInfoCuatro("Chats cotizados por el Bot") */
       setInfoCinco("Chats cotizados por los asesores")
       setInfoSeis("Gestión de usuarios")
     }else if(usuario.roles[0].name === "user"){
+      /* REVISAR SI VAMOS A DEJAR ESTA VARIACION ENTRE USERS Y ADMINS: ------------>>>> */
       setInfoCero("1° y 2° Gestión")
       setInfoUno("Chats Cotizados")
       setInfoDos("Chats Ventas")

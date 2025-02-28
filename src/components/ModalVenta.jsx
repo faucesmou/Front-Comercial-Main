@@ -12,6 +12,13 @@ const provincias = [
   { id: 3, name: "san juan", unavailable: false },
   { id: 4, name: "cordoba", unavailable: false },
 ];
+const paises = [
+  { id: 1, name: "Argentina", unavailable: false },
+  { id: 2, name: "Brasil", unavailable: false },
+  { id: 3, name: "Paraguay", unavailable: false },
+  { id: 4, name: "Estados Unidos", unavailable: false },
+  { id: 5, name: "Otro", unavailable: false },
+];
 
 const planes = [
   { id: 1, name: "platinum", unavailable: false },
@@ -27,6 +34,11 @@ const ModalVenta = () => {
   const [fecha, setFecha] = useState("");
   const [capitas, setCapitas] = useState(1);
   const [hora, setHora] = useState(0);
+  const [paisSelected, setPaisSelected] = useState({
+    id: 0,
+    name: "seleccione un País",
+    unavailable: false,
+  });
   const [selected, setSelected] = useState({
     id: 0,
     name: "seleccione una provincia",
@@ -63,8 +75,9 @@ const ModalVenta = () => {
     setEmail("");
     setCuil("");
     setMedio("");
-    setFecha("");
-    setHora();
+  /*   setFecha("");
+    setHora(); */
+    setPaisSelected("")
   };
 
   // const user = usuarios.find((user) => user._id === params.id);
@@ -85,37 +98,41 @@ const ModalVenta = () => {
     const regex = /^\d{11}$/
     try {
       e.preventDefault();
-      if (nombre === "" || email === "" || cuil === "" || medio === "") {
+      if (nombre === "" || email === "" || cuil === "" || medio === "" || paisSelected === "") {
         throw new Error("Todos los campos son obligatorios");
       }
 
-      if (selected.id === 0) {
+      if (paisSelected.id === 0) {
+        throw new Error("Debe seleccionar un país");
+      }
+     /*  if (selected.id === 0) {
         throw new Error("Debe seleccionar una provincia");
-      }
+      } */
 
-      if (selec.id === 0) {
+    /*   if (selec.id === 0) {
         throw new Error("Debe seleccionar un plan");
-      }
+      } */
 
       if(!regex.test(cuil)){
         throw new Error("Formato incorrecto para el cuil");
       }
-      
+     /*  
       if(capitas < 1 || capitas > 10){
         throw new Error("Capitas > 0 && Capitas < 11");
-      }
+      } */
 
       await fnVenta({
         nombre,
         email,
         cuil,
         medio,
-        provincia: selected.name,
-        plan: selec.name,
+        pais: paisSelected.name,
+      /*   provincia: selected.name,
+        plan: selec.name, */
         telefono: params.id,
-        capitas,
+       /*  capitas,
         fecha,
-        hora,
+        hora, */
       });
 
       setAlerta({
@@ -294,7 +311,7 @@ const ModalVenta = () => {
                         onChange={(e) => setMedio(e.target.value)}
                       />
                     </div>
-
+{/* 
                     <div className="mb-5">
                       <label
                         htmlFor="capitas"
@@ -310,8 +327,8 @@ const ModalVenta = () => {
                         value={capitas}
                         onChange={(e) => setCapitas(e.target.value)}
                       />
-                    </div>
-                    <div className="mb-5">
+                    </div> */}
+                  {/*   <div className="mb-5">
                       <label
                         htmlFor="fecha"
                         className="text-gray-700 uppercase font-bold text-sm"
@@ -327,8 +344,8 @@ const ModalVenta = () => {
                         value={fecha}
                         onChange={(e) => setFecha(e.target.value)}
                       />
-                    </div>
-                    <div className="mb-5">
+                    </div> */}
+                   {/*  <div className="mb-5">
                       <label
                         htmlFor="hora"
                         className="text-gray-700 uppercase font-bold text-sm"
@@ -345,8 +362,35 @@ const ModalVenta = () => {
                         value={hora}
                         onChange={(e) => setHora(e.target.value)}
                       />
-                    </div>
+                    </div> */}
                     <div className="mb-5">
+                      <label
+                        htmlFor="pais"
+                        className="text-gray-700 uppercase font-bold text-sm"
+                      >
+                        País
+                      </label>
+                      <div className="w-full text-center p-1 bg-slate-200 rounded-lg font-bold text-gray-600">
+                        <Listbox value={paisSelected} onChange={setPaisSelected}>
+                          <Listbox.Button className="w-full uppercase">
+                            {paisSelected.name}
+                          </Listbox.Button>
+                          <Listbox.Options>
+                            {paises.map((person) => (
+                              <Listbox.Option
+                                key={person.id}
+                                value={person}
+                                disabled={person.unavailable}
+                                className="hover:bg-slate-400 hover:text-white transition-colors rounded-lg uppercase hover:cursor-pointer"
+                              >
+                                {person.name}
+                              </Listbox.Option>
+                            ))}
+                          </Listbox.Options>
+                        </Listbox>
+                      </div>
+                    </div>
+                   {/*  <div className="mb-5">
                       <label
                         htmlFor="provincia"
                         className="text-gray-700 uppercase font-bold text-sm"
@@ -372,9 +416,9 @@ const ModalVenta = () => {
                           </Listbox.Options>
                         </Listbox>
                       </div>
-                    </div>
+                    </div> */}
 
-                    <div className="mb-5">
+                   {/*  <div className="mb-5">
                       <label
                         htmlFor="plan"
                         className="text-gray-700 uppercase font-bold text-sm"
@@ -400,7 +444,7 @@ const ModalVenta = () => {
                           </Listbox.Options>
                         </Listbox>
                       </div>
-                    </div>
+                    </div> */}
 
                     <button
                       type="submit"
