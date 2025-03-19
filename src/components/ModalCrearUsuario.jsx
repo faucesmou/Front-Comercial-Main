@@ -33,7 +33,8 @@ const ModalCrearUsuario = () => {
 
   const token = localStorage.getItem("token");
   const decoded = jwtDecode(token)
-  const cond = decoded.id === '63ade3a73abf97575a693496'
+  /* const cond = decoded.id === '63ade3a73abf97575a693496' */
+  const cond = decoded.id === '67c21551b8fa93039e1a6224'
 
 
 

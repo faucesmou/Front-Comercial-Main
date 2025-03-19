@@ -25,9 +25,7 @@ const SidebarUsuarios = () => {
   const filtrados = usuarios.filter(user => user.roles[0] === '63ade3a73abf97575a693490')
   // COMERCIAL PROPIA
   // const filtrados = usuarios.filter(user => user.roles[0] === '6732050494775e2b04367060')
-  
-
-  
+   
 
   return (
     <>
@@ -44,6 +42,7 @@ const SidebarUsuarios = () => {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
+              
               className="w-6 h-6 mr-3"
             >
               <path
