@@ -84,7 +84,7 @@ const IconosHeader = () => {
     navigate("/chats");
   };
   //se agrega condicion para evitar que los usuers puedan acceder al boton de pasar a residual:
-
+ const decoded = jwtDecode(token)
   const allowedIds = ['6732050494775e2b04367069', '673361c5dd2e609c5d217237'];
   const condicionAdmin = allowedIds.includes(decoded.id);
 
