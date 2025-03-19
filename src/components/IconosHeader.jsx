@@ -5,6 +5,7 @@ import { useParams, useNavigate, useLocation } from "react-router-dom";
 import BtnRechazar from "./BtnRechazar";
 import BtnVenta from "./BtnVenta";
 import BtnCotizado from "./BtnCotizado";
+import BtnResidual from "./BtnResidual";
 
 let socket;
 //ESTO ES UNA PRUEBA
@@ -82,6 +83,10 @@ const IconosHeader = () => {
     socket.emit("modificar-condicion", obj);
     navigate("/chats");
   };
+  //se agrega condicion para evitar que los usuers puedan acceder al boton de pasar a residual:
+
+  const allowedIds = ['6732050494775e2b04367069', '673361c5dd2e609c5d217237'];
+  const condicionAdmin = allowedIds.includes(decoded.id);
 
   return (
     <>
@@ -165,6 +170,11 @@ const IconosHeader = () => {
           {/* <Switch isOn={isOn} handleToggle={toggleSwitch} /> Jose */}
           <BtnVenta ruta={elemento} telefono={id} />
           <BtnRechazar ruta={elemento} telefono={id} />
+    {condicionAdmin && (
+                       <BtnResidual ruta={elemento} telefono={id} />
+                    )}
+
+        {/*   <BtnResidual ruta={elemento} telefono={id} /> */}
           {/* Botón cotizar --------------------------------------------------->>> */}
      {/*      <BtnCotizado ruta={elemento} telefono={id} /> */}
 

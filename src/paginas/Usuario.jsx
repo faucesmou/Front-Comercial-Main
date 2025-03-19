@@ -21,8 +21,9 @@ const Usuario = () => {
 
   const token = localStorage.getItem("token");
   const decoded = jwtDecode(token)
-  const cond = decoded.id === '63ade3a73abf97575a693496'
-
+ /*  const cond = decoded.id === '63ade3a73abf97575a693496' */
+ const allowedIds = ['6732050494775e2b04367069', '673361c5dd2e609c5d217237'];
+ const cond = allowedIds.includes(decoded.id);
   
   
 
