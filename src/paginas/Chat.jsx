@@ -27,8 +27,8 @@ const rutas = [
 ]
 
 const operadores = [
-  "63ade3a73abf97575a693496", // MM
-  "658abdd514b24b2e09b36a84"
+  "63ade3a73abf97575a693496", // Marce Marino
+  "673361c5dd2e609c5d217237", //Gonza Morresi
 ]
 
 const usuarios = [
@@ -45,14 +45,14 @@ const usuarios = [
     nombre: "Santiago Mas"
   },
   {
-    id: "658abdd514b24b2e09b36a84",
-    nombre: "Juan Pablo Belmonte"
+    id: "67c21551b8fa93039e1a6224",
+    nombre: "Marcela"
   },
   {
-    id: "664cc9c06a046b8c840f3781",
-    nombre: "Raul Lucania"
+    id: "67db0d50afb285b405f8263a",
+    nombre: "Agustina Sureda"
   },
-  {
+/*   {
     id: "66a7edce1508ebca4070a637",
     nombre: "Jofre Jessica"
   },
@@ -75,7 +75,7 @@ const usuarios = [
   {
     id: "66e43a8a9abfee773069c98e",
     nombre: "prueba"
-  },
+  }, */
   {
     id: "673361c5dd2e609c5d217237",
     nombre: "Gonzalo Morresi"
