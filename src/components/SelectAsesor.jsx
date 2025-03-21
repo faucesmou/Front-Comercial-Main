@@ -22,6 +22,7 @@ const SelectAsesor = ({telefono}) => {
     
 
     useEffect(() => {
+        /* console.log('el valor del token ess_------->>>', token); */
         
         const inicio = async () => {
             
@@ -44,6 +45,8 @@ const SelectAsesor = ({telefono}) => {
             setDataChat(data2)
             
             setAsesores(data)
+          /*   console.log('los setAsesores son--->', asesores); */
+            
             
         }
         inicio()
@@ -62,7 +65,7 @@ const SelectAsesor = ({telefono}) => {
     },[dataChat])
 
     const handleChange = (e) => {
-        // console.log(e.target);
+        console.log(e.target);
         const selectedIndex = e.target.options.selectedIndex;
         const text = e.target.options[selectedIndex].text;
         setSelected(e.target.value)
@@ -99,11 +102,16 @@ const SelectAsesor = ({telefono}) => {
 
     return (
         <div className='flex flex-col'>
-            <select className='bg-slate-600 p-2 rounded-lg w-fit h-fit text-gray-200' value={seletected} onChange={handleChange}>
-                <option value='' key='alkdsjflk'>Asesores</option>
+            <select className='bg-slate-600 p-1 rounded-lg w-fit h-fit text-gray-200' value={seletected} onChange={handleChange}
+            style={{ textIndent: '10px' }} 
+            >
+                <option value='' key='alkdsjflk'style={{ textAlign: 'center', paddingRight: '20px'  }}>Asesores</option>
                 {asesores.map(asesor => (
                     (
-                        <option value={asesor._id} key={asesor._id}>{asesor.username}</option>
+                        <option value={asesor._id}
+                         key={asesor._id}
+                         style={{ textAlign: 'center' }}
+                         >{asesor.username} </option>
                     )
 
                    /*  return (

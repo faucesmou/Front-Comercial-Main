@@ -171,9 +171,12 @@ const IconosHeader = () => {
           </button> */}
           {/* <Switch isOn={isOn} handleToggle={toggleSwitch} /> Jose */}
           <BtnVenta ruta={elemento} telefono={id} />
-          <BtnRechazar ruta={elemento} telefono={id} />
+        {/*   <BtnRechazar ruta={elemento} telefono={id} /> */}
     {condicionAdmin && (
-                       <BtnResidual ruta={elemento} telefono={id} />
+      <>
+      <BtnRechazar ruta={elemento} telefono={id} />
+    <BtnResidual ruta={elemento} telefono={id} />
+      </>
                     )}
 
         {/*   <BtnResidual ruta={elemento} telefono={id} /> */}

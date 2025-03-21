@@ -52,7 +52,7 @@ const BtnResidual = ({ ruta, telefono }) => {
       className={`bg-gray-300 text-gray-100 mb-1 w-28 font-bold p-1 rounded-lg flex items-center justify-center ${
         cond
           ? "cursor-not-allowed"
-          : "hover:bg-red-600 transition-all cursor-pointer"
+          : "hover:bg-yellow-600 transition-all cursor-pointer"
       }`}
       disabled={cond}
       onClick={handleClickButton}

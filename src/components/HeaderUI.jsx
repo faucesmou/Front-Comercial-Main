@@ -140,11 +140,11 @@ export default function HeaderUI() {
         href: "/residual",
         current: btnResidual,
       },
-      {
+ /*      {
         name: "Mis Cotizados",
         href: "/cotiasesor",
         current: btnCotiasesor,
-      },
+      }, */
       {  name: "Ventas", href: "/ventas", current: btnVentas },
       {  name: "Rechazado", href: "/rechazado", current: btnRechazado }
     );
