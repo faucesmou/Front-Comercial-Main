@@ -98,13 +98,13 @@ const ModalVenta = () => {
     const regex = /^\d{11}$/
     try {
       e.preventDefault();
-      if (nombre === "" || email === "" || cuil === "" || medio === "" || paisSelected === "") {
+      if (nombre === "" /* || email === "" || cuil === "" || medio === "" || paisSelected === "" */) {
         throw new Error("Todos los campos son obligatorios");
       }
 
-      if (paisSelected.id === 0) {
+     /*  if (paisSelected.id === 0) {
         throw new Error("Debe seleccionar un país");
-      }
+      } */
      /*  if (selected.id === 0) {
         throw new Error("Debe seleccionar una provincia");
       } */
@@ -113,9 +113,9 @@ const ModalVenta = () => {
         throw new Error("Debe seleccionar un plan");
       } */
 
-      if(!regex.test(cuil)){
+   /*    if(!regex.test(cuil)){
         throw new Error("Formato incorrecto para el cuil");
-      }
+      } */
      /*  
       if(capitas < 1 || capitas > 10){
         throw new Error("Capitas > 0 && Capitas < 11");
@@ -262,7 +262,7 @@ const ModalVenta = () => {
                         onChange={(e) => setNombre(e.target.value)}
                       />
                     </div>
-                    <div className="mb-5">
+                {/*     <div className="mb-5">
                       <label
                         htmlFor="email"
                         className="text-gray-700 uppercase font-bold text-sm"
@@ -277,8 +277,8 @@ const ModalVenta = () => {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                       />
-                    </div>
-                    <div className="mb-5">
+                    </div> */}
+                {/*     <div className="mb-5">
                       <label
                         htmlFor="cuil"
                         className="text-gray-700 uppercase font-bold text-sm"
@@ -293,9 +293,9 @@ const ModalVenta = () => {
                         value={cuil}
                         onChange={(e) => setCuil(e.target.value)}
                       />
-                    </div>
+                    </div> */}
 
-                    <div className="mb-5">
+                  {/*   <div className="mb-5">
                       <label
                         htmlFor="medio"
                         className="text-gray-700 uppercase font-bold text-sm"
@@ -310,7 +310,7 @@ const ModalVenta = () => {
                         value={medio}
                         onChange={(e) => setMedio(e.target.value)}
                       />
-                    </div>
+                    </div> */}
 {/* 
                     <div className="mb-5">
                       <label
@@ -363,7 +363,7 @@ const ModalVenta = () => {
                         onChange={(e) => setHora(e.target.value)}
                       />
                     </div> */}
-                    <div className="mb-5">
+                {/*     <div className="mb-5">
                       <label
                         htmlFor="pais"
                         className="text-gray-700 uppercase font-bold text-sm"
@@ -389,7 +389,7 @@ const ModalVenta = () => {
                           </Listbox.Options>
                         </Listbox>
                       </div>
-                    </div>
+                    </div> */}
                    {/*  <div className="mb-5">
                       <label
                         htmlFor="provincia"

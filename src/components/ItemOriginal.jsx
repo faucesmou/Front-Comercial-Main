@@ -7,9 +7,8 @@ import { jwtDecode } from "jwt-decode";
 
 
 const Item = ({ chat }) => {
-
+  
   console.log('el chat recibido ES-->', chat)
-  console.log('el chat msg ES----------------###>', chat.msg)
   const [noti, setNoti] = useState();
   const [flag, setFlag] = useState(false);
   const {
@@ -39,19 +38,19 @@ const Item = ({ chat }) => {
   const navigate = useNavigate();
   let fecha;
   let numeroLimpio;
-  let nombre2 = chat.nombre
+  let nombre2= chat.nombre
 
   let condOpe
-  if ('operador' in chat) {
-    if (chat.operador !== null) {
+  if('operador' in chat){
+    if(chat.operador !== null){
       condOpe = true
-    } else {
+    }else {
       condOpe = false
     }
   }
   const token = localStorage.getItem('token')
   const decoded = jwtDecode(token)
-
+  
 
   if (chat?.updatedAt) {
     fecha = herramientas.formatearFecha(chat.updatedAt);
@@ -74,11 +73,11 @@ const Item = ({ chat }) => {
 
   const path = `/${cadRuta}/${cond ? numeroLimpio : chat.telefono}`;
 
-  useEffect(() => {
-    if (chat.nota === "urgente" || chat.nota === "normal") {
+  useEffect(()=>{
+    if(chat.nota === "urgente" || chat.nota === "normal"){
       setFlag(true)
     }
-  }, [])
+  },[])
 
   useEffect(() => {
     setNoti(sinLeer);
@@ -103,9 +102,9 @@ const Item = ({ chat }) => {
   useEffect(() => {
     const fnUpdateNoti = (objeto) => {
 
-      if (chat.telefono === objeto.telefono && (objeto.nota === "normal" || objeto.nota === "urgente")) {
+      if(chat.telefono === objeto.telefono && (objeto.nota === "normal" || objeto.nota === "urgente")){
         setFlag(true)
-      } else if (chat.telefono === objeto.telefono) {
+      }else if (chat.telefono === objeto.telefono) {
         if (ruta[2] !== undefined) {
           setNoti();
           socket.emit("noti", { msg: "success", telefono: chat.telefono });
@@ -180,11 +179,11 @@ const Item = ({ chat }) => {
     };
   }, [socket]);
 
-
+  
 
   const funcPrueba = async () => {
-
-
+    
+    
 
     setNoti();
     // setFlag(false)
@@ -198,138 +197,38 @@ const Item = ({ chat }) => {
     <>
       <Link
         to={path}
-        onClick={funcPrueba}
-      >
-        <div
-          className={`
-      relative
-    group
-    rounded-md
-    px-3 py-2
-    mb-2
-    flex items-center
-    text-sm
-    transition-colors
-  ${chat.segunda 
-  ? `border-2 border-dotted ${
-      chat.msg === "casiventa"
-        ? "border-red-500"
-        : chat.msg === "venta"
-        ? "border-green-500"
-        : "border-indigo-500"
-    }`
-  : "border border-slate-500"}
-    ${operadores.includes(decoded.id) && condOpe
-              ? "bg-lime-200 hover:bg-lime-400"
-              : "bg-white hover:bg-slate-500"}
-    shadow-sm ring-1 ring-gray-200
-    hover:text-white
-  `}
-        
-        >
-          <div className="flex flex-col items-center justify-center mr-3">
-            <User />
-            {flag && (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className={`h-5 w-5 mt-1 ${chat.nota === "urgente" ? "text-red-600" : "text-yellow-500"}`}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5"
-                />
-              </svg>
-            )}
-          </div>
-
-          <div className="relative flex items-center"> {/* Agregamos 'relative' para posicionar la notificación dentro de este contenedor */}
-            <div className="flex-1">
-              <div className="flex items-center mb-1"> {/* Eliminamos justify-between */}
-                <p className="font-semibold truncate mr-7">{chat?.nombre || "Customer"}</p> {/* mr-auto empuja la fecha a la derecha */}
-                <span className="text-xs text-gray-500 group-hover:text-white">{chat?.updatedAt ? fecha : fechaActual}</span>
-              </div>
-
-              <p className="block font-black text-md group-hover:text-white">
-                +{cond ? numeroLimpio : chat.telefono}
-              </p>
-             {/*  <p className="block font-black text-md group-hover:text-white">
-                {chat.email}
-              </p> */}
-            </div>
-
-            {noti > 0 && (
-              <div className="ml-4"> {/* Añadimos un margen izquierdo para separar la notificación del contenido principal */}
-                <div className="h-5 w-5 text-xs font-bold text-white rounded-full bg-red-500 flex items-center justify-center">
-                  {noti}
-                </div>
-              </div>
-            )}
-          </div>
-          </div>
-
-          {/*  <div className="flex-1">
-            <div className="flex justify-between items-center mb-1 mr-2">
-              <p className="font-semibold truncate">{chat?.nombre || "Customer"}</p>
-              <span className="text-xs text-gray-500">{chat?.updatedAt ? fecha : fechaActual}</span>
-            </div>
-
-            <p className="block font-black text-md group-hover:text-white">
-              +{cond ? numeroLimpio : chat.telefono}
-            </p>
-            <p className="block font-black text-md group-hover:text-white">
-              {chat.email}
-            </p>
-          </div>
-
-          {noti > 0 && (
-            <div className="absolute top-2 right-2">
-              <div className="h-5 w-5 text-xs font-bold text-white rounded-full bg-red-500 flex items-center justify-center">
-                {noti}
-              </div>
-            </div>
-          )}
-        </div> */}
-      </Link>
-
-    {/*   <Link
-        to={path}
         onClick={() => {
           funcPrueba();
         }}
       >
-        <div className={` ${chat.segunda && "border-4 border-dotted border-indigo-500"} ${operadores.includes(decoded.id) && condOpe ? "bg-lime-300 hover:bg-lime-600" : "bg-slate-300 hover:bg-slate-600"}    hover:text-white rounded-lg p-4 mb-3 flex  transition-colors`}>
+        <div className={` ${chat.segunda && "border-4 border-dotted border-indigo-500" } ${operadores.includes(decoded.id) && condOpe ? "bg-lime-300 hover:bg-lime-600" :  "bg-slate-300 hover:bg-slate-600"}    hover:text-white rounded-lg p-4 mb-3 flex  transition-colors`}>
           <div className="flex flex-col items-center justify-center mr-2">
             <User />
             {flag && (
               <div>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  fill="none" 
+                  viewBox="0 0 24 24" 
+                  strokeWidth="1.5" 
+                  stroke="currentColor" 
                   className={`h-6 w-6 ${chat.nota === "urgente" ? "text-red-600" : "text-yellow-600"}`}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5"
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    d="M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5" 
                   />
                 </svg>
               </div>
             )}
-
+           
           </div>
-
+          
           <div className="w-full overflow-hidden">
             <div className="flex mb-1 items-center ">
               <p className="flex-grow">
-                {chat?.nombre ? chat.nombre : "Customer"}
+                {chat?.nombre ? chat.nombre : "Customer"}               
               </p>
               <small className="font-light text-sm">
                 {chat?.updatedAt ? fecha : fechaActual}
@@ -351,7 +250,7 @@ const Item = ({ chat }) => {
             )}
           </div>
         </div>
-      </Link> */}
+      </Link>
     </>
   );
 };

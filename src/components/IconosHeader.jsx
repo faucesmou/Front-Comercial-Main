@@ -3,10 +3,11 @@ import { jwtDecode } from 'jwt-decode'
 import { useChats } from "../hooks/useChats";
 import { useResidual } from "../hooks/useResidual";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
-import BtnRechazar from "./BtnRechazar";
-import BtnVenta from "./BtnVenta";
-import BtnCotizado from "./BtnCotizado";
-import BtnResidual from "./BtnResidual";
+import BtnRechazar from "../components/buttons/BtnRechazar";
+import BtnVenta from "../components/buttons/BtnVenta";
+import BtnResidual from "../components/buttons/BtnResidual";
+import BtnBot from "../components/buttons/BtnBot";
+import BtnDetenerBot from "../components/buttons/BtnDetenerBot";
 
 let socket;
 //ESTO ES UNA PRUEBA
@@ -87,7 +88,8 @@ const IconosHeader = () => {
   //se agrega condicion para evitar que los usuers puedan acceder al boton de pasar a residual:
   const token = localStorage.getItem("token");
  const decoded = jwtDecode(token)
-  const allowedIds = ['6732050494775e2b04367069', '673361c5dd2e609c5d217237'];
+ //ids para autorizar visualizacion de botones
+  const allowedIds = ['6732050494775e2b04367069', '673361c5dd2e609c5d217237', '6807c3d95edc3bb618f5444b', '67c21551b8fa93039e1a6224', '67db0d50afb285b405f8263a', '6807c3d95edc3bb618f5444b', '6835ccf94c87a90dc940e407', '6835cd4e4c87a90dc940e523'];
   const condicionAdmin = allowedIds.includes(decoded.id);
 
   return (
@@ -148,7 +150,7 @@ const IconosHeader = () => {
         </button> */}
         {/* boton temporal para regresar el chat a la interaccion del BOT */}
         {/* {elemento !== "rechazado" && elemento !== "residual" && ( */}
-        <div className="flex flex-col  gap-1 md:block">
+        <div className="flex gap-1 ">
           {/* <button
             className="bg-gray-300 mb-1 w-28 text-gray-100 font-bold p-1 rounded-lg flex items-center justify-center  transition-all hover:bg-teal-600 "
             onClick={handleClickRegresar}
@@ -170,12 +172,17 @@ const IconosHeader = () => {
             <p className="text-sm">BOT</p>
           </button> */}
           {/* <Switch isOn={isOn} handleToggle={toggleSwitch} /> Jose */}
-          <BtnVenta ruta={elemento} telefono={id} />
+       {/*    <BtnVenta ruta={elemento} telefono={id} /> */}
         {/*   <BtnRechazar ruta={elemento} telefono={id} /> */}
     {condicionAdmin && (
       <>
-      <BtnRechazar ruta={elemento} telefono={id} />
-    <BtnResidual ruta={elemento} telefono={id} />
+       <BtnVenta ruta={elemento} telefono={id} />
+              <BtnRechazar ruta={elemento} telefono={id} />
+              <BtnResidual ruta={elemento} telefono={id} />
+              <BtnBot ruta={elemento} telefono={id} />
+              <BtnDetenerBot ruta={elemento} telefono={id} />
+   {/*    <BtnRechazar ruta={elemento} telefono={id} />
+    <BtnResidual ruta={elemento} telefono={id} /> */}
       </>
                     )}
 

@@ -245,14 +245,14 @@ const Chat = () => {
     }
   }); //Fin del useEffect
 
-  const handleSubmitMensaje = (e) => {
+/*   const handleSubmitMensaje (original) = (e) => {
     e.preventDefault();
     const token = localStorage.getItem("token");
     if (!token) return;
 
     const user = usuarios.find(usr => usr.id === decoded.id)
 
-    // condicional para enviar un archivo
+   
     if (addFile) {
       const reader = new FileReader();
       reader.onload = (event) => {
@@ -278,7 +278,7 @@ const Chat = () => {
       from: id,
     };
     socket.emit("msj-salida", objSalida);
-    // enviarMsj(objSalida);
+  enviarMsj(objSalida);
 
     const objetoMsj = {
       msjSalida: salida,
@@ -287,9 +287,59 @@ const Chat = () => {
     };
     setLista([...lista, objetoMsj]);
     setMensaje("");
-  };
+  }; */
   //hola gonzalito
 
+    const handleSubmitMensaje = (e) => {
+  e.preventDefault();
+
+  const token = localStorage.getItem("token");
+  if (!token) return;
+
+  const decoded = jwtDecode(token); // Asegurate de tener esta línea
+  const user = usuarios.find(usr => usr.id === decoded.id);
+  if (!user) {
+    console.error("Usuario no encontrado con ID:", decoded.id);
+    return;
+  }
+
+  if (mensaje.trim() === "") return;
+
+  // Si hay archivo
+  if (addFile) {
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const arrayBuffer = event.target.result;
+      socket.emit("file_upload", {
+        fileName: addFile.name,
+        fileBuffer: arrayBuffer,
+        telefono,
+        token,
+      });
+    };
+    reader.readAsArrayBuffer(addFile);
+    setAddFile(null);
+  }
+
+  const salida = [mensaje.trim()];
+  const objSalida = {
+    operador: user.nombre,
+    msjSalida: salida,
+    from: id,
+  };
+  socket.emit("msj-salida", objSalida);
+  console.log("Llegando a enviarMsj con el objeto:", objSalida);
+  enviarMsj(objSalida); 
+ console.log("Saliendo de enviarMsj---------------->>>>:");
+  const objetoMsj = {
+    msjSalida: salida,
+    operador: user.nombre,
+    send: true,
+  };
+  setLista(prev => [...prev, objetoMsj]); 
+  console.log("enviado");
+  setMensaje("");
+};
   const handleFileInputClick = () => {
     document.getElementById("fileInput").click();
   };
@@ -378,7 +428,8 @@ const Chat = () => {
       {mensajes.length > 0 ? (
         <div className="bg-gray-200 w-full h-full" >
           {/*  header */}
-          <div className="w-full px-12 border-b border-stone-300 h-1/5 flex justify-between items-center">
+          <div className="w-full px-12 border-b border-stone-300 h-70 flex items-center " /* className="w-full px-12 border-b border-stone-300 h-1/5 flex justify-between items-center" */
+          >
            {/*  {telefono === "5492614714607" && (
               <button onClick={handleModalTimer}>
                 <svg
@@ -398,10 +449,10 @@ const Chat = () => {
               </button>
             )} */}
             <div className="flex  items-center">
-              <div className="flex flex-col h-full justify-center gap-4">
+              <div className="flex flex-col h-full justify-center gap-2">
             
                 {/* {elemento === 'rechazado' && operadores.includes(decoded.id) && ( */}
-                {elemento === 'rechazado'  && (
+           {/*      {elemento === 'rechazado'  && (
                   <button onClick={handleClickResidual}>
                     <svg 
                       xmlns="http://www.w3.org/2000/svg" 
@@ -420,13 +471,13 @@ const Chat = () => {
                     
                   </button>
                   
-                )}
+                )} */}
                 <User />
                 
               </div>
             
             
-              <div className="ml-2 self-center h-68" /* className="bg-gray-200 w-full h-68 mt-1 p-0" */>
+              <div /* className="ml-2 self-center h-68" */ className="bg-gray-200 w-full h-68 mt-1 p-0">
                 <p className="font-medium">
                   {infoChat.nombre ? infoChat.nombre : "Customer"}
                 </p>
@@ -459,21 +510,23 @@ const Chat = () => {
                 </div>
               </div>
             </div>
-            {((operadores.includes(decoded.id)) && (rutas.includes(rootPath))) && (
+       {/*      {((operadores.includes(decoded.id)) && (rutas.includes(rootPath))) && (
               <div className="flex justify-center items-center px-2">
                 <SelectAsesor telefono={telefono} />
               </div>
-            )}
+            )} */}
            
-            <div className="w-1/8 flex text-gray-500 justify-center items-end">
+            <div className="w-3/4 flex text-gray-500 justify-center items-center  ml-4"/* className="w-1/8 flex text-gray-500 justify-center items-end" */>
               <IconosHeader />
             </div>
           </div>
           {/* body */}
-          <div className="px-9 py-6 border-b border-stone-300 h-[62%] overflow-scroll scrollbar-hide  flex flex-col transition-all">
+          <div /* className="px-9 py-6 border-b border-stone-300 h-[62%] overflow-scroll scrollbar-hide  flex flex-col transition-all" */
+          className="px-9 py-3 border-b border-stone-300 h-[73%] overflow-scroll scrollbar-hide  flex flex-col transition-all">
            
-            {/* barra lateral con la info */}
-            <SideInfo info={infoChat}/>
+            {/* barra lateral con la info ------------------------>*/}
+         {/*    <SideInfo info={infoChat}/> */}
+
             {/* contenido principal del chat */}
             <div className="">
               {/* aca comienzan las conversaciones, mensajes */}
@@ -540,7 +593,7 @@ const Chat = () => {
                   value={mensaje}
                   onChange={(e) => setMensaje(e.target.value)}
                 />
-                <button
+          {/*       <button
                   type="button"
                   className="p-2"
                   onClick={handleFileInputClick}
@@ -567,7 +620,7 @@ const Chat = () => {
                     onChange={handleAddFile}
                     disabled={btnNota}
                   />
-                </button>
+                </button> */}
                
                 <button
                   type="submit"
