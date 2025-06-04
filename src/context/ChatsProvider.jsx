@@ -396,6 +396,7 @@ const ChatsProvider = ({ children }) => {
       }
     }
   };
+  
 
   const insertarVenta = async (numero, cond = true) => {
     try {
@@ -604,6 +605,30 @@ const ChatsProvider = ({ children }) => {
       console.log(error);
     }
   }
+    const pasarAbot = async (telefono) => {
+    try {
+
+      const tokeno = localStorage.getItem("token");
+      if (!tokeno) throw new Error("Error con el Token");
+
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${tokeno}`,
+        },
+      };
+
+      const { data } = await clienteAxios(`/chats/pasar-bot?telefono=${telefono}`, config)
+
+      if (data.msg === 'ok') {
+        return true
+      } else {
+        return false
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   const primeraGestion = async (desde,hasta) => {
     try {
@@ -786,7 +811,8 @@ const operadores = [
         primeraGestion,
         cargaExcel,
         fnBusqueda,
-        sumarChats
+        sumarChats,
+        pasarAbot
       }}
     >
       {children}

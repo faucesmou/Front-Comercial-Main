@@ -113,6 +113,7 @@ const Chat = () => {
     setMensajes,
     socket,
     pasarResidual,
+    enviarMsj,
   } = useChats();
 
   const { usuario, auth } = useAuth();
@@ -290,7 +291,58 @@ const Chat = () => {
   }; */
   //hola gonzalito
 
-    const handleSubmitMensaje = (e) => {
+/*     const handleSubmitMensaje = (e) => {
+  e.preventDefault();
+
+  const token = localStorage.getItem("token");
+  if (!token) return;
+
+  const decoded = jwtDecode(token); 
+  const user = usuarios.find(usr => usr.id === decoded.id);
+  if (!user) {
+    console.error("Usuario no encontrado con ID:", decoded.id);
+    return;
+  }
+
+  if (mensaje.trim() === "") return;
+
+  
+  if (addFile) {
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const arrayBuffer = event.target.result;
+      socket.emit("file_upload", {
+        fileName: addFile.name,
+        fileBuffer: arrayBuffer,
+        telefono,
+        token,
+      });
+    };
+    reader.readAsArrayBuffer(addFile);
+    setAddFile(null);
+  }
+
+  const salida = [mensaje.trim()];
+  const objSalida = {
+    operador: user.nombre,
+    msjSalida: salida,
+    from: id,
+  };
+  socket.emit("msj-salida", objSalida);
+  console.log("Llegando a enviarMsj con el objeto:", objSalida);
+  enviarMsj(objSalida); 
+ console.log("Saliendo de enviarMsj---------------->>>>:");
+  const objetoMsj = {
+    msjSalida: salida,
+    operador: user.nombre,
+    send: true,
+  };
+  setLista(prev => [...prev, objetoMsj]); 
+  console.log("enviado");
+  setMensaje("");
+}; */
+
+  const handleSubmitMensaje = (e) => {
   e.preventDefault();
 
   const token = localStorage.getItem("token");
@@ -336,7 +388,7 @@ const Chat = () => {
     operador: user.nombre,
     send: true,
   };
-  setLista(prev => [...prev, objetoMsj]); 
+  setLista(prev => [...prev, objetoMsj]); // ← forma correcta
   console.log("enviado");
   setMensaje("");
 };
