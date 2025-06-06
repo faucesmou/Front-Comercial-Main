@@ -107,7 +107,7 @@ const Sidebar = () => {
       <aside className="md:w-80 lg:w-3/12 px-5 py-5 bg-gray-100 overflow-hidden  border-r border-stone-400 h-full md:block hidden">
         <button
           type="button"
-          className="w-full flex items-center justify-center bg-blue-300 hover:bg-blue-600  font-medium text-lg transition ease-out duration-150 p-2 rounded-lg text-black mb-2 mt-16"
+          className="w-full flex items-center justify-center bg-[#b9c2c7] hover:bg-[#a29de0] hover:text-white text-[#1f2937]   font-medium text-lg transition ease-out duration-150 p-1 rounded-lg text-black mb-2 mt-16"
           // className="w-full flex items-center justify-center bg-indigo-300 font-medium text-lg transition ease-out duration-150 p-2 rounded-lg text-white mb-2 mt-16"
           onClick={handleModalChatInicial}
           // disabled={true}
@@ -128,7 +128,7 @@ const Sidebar = () => {
           </svg>
           Iniciar un Chat
         </button>
-        <div className="w-full  p-2 bg-blue-300 hover:bg-blue-600 font-bold text-center rounded-lg flex justify-center items-center ">
+        <div className="w-full  p-1 bg-[#b9c2c7] hover:bg-[#a29de0] hover:text-white text-[#1f2937] font-bold text-center rounded-lg flex justify-center items-center ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

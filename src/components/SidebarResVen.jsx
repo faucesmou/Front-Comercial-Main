@@ -341,7 +341,7 @@ const SidebarResVen = () => {
       {elemento === "residual" && (
         <button
             type="button"
-            className="w-full flex items-center justify-center bg-indigo-300 hover:bg-indigo-600  font-medium text-lg transition ease-out duration-150 p-2 rounded-lg text-white mb-2 mt-16"
+            className="w-full flex items-center justify-center bg-[#b9c2c7] hover:bg-[#a29de0] hover:text-white text-[#1f2937] font-medium text-lg transition ease-out duration-150 p-1 rounded-lg text-white mb-2 mt-16"
             // className="w-full flex items-center justify-center bg-indigo-300 font-medium text-lg transition ease-out duration-150 p-2 rounded-lg text-white mb-2 mt-16"
             onClick={handleModalChatInicial}
             // disabled={true}
@@ -364,7 +364,7 @@ const SidebarResVen = () => {
           </button>
       )}
         
-        <div className={`w-full  p-2 bg-gray-300 text-gray-900 font-bold text-center rounded-lg flex justify-center items-center ${elemento !== "residual" ? "mt-16" : ""}`}>
+        <div className={`w-full  p-1 bg-[#b9c2c7] hover:bg-[#a29de0] hover:text-white text-[#1f2937] font-bold text-center rounded-lg flex justify-center items-center ${elemento !== "residual" ? "mt-16" : ""}`}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
