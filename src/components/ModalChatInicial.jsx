@@ -8,6 +8,30 @@ import { useParams, useNavigate, useLocation } from "react-router-dom";
 
 const plantillas = [
   { 
+    id: 4, 
+    name: "retomar_conversacion", 
+    description: `¡Hola! ¿Cómo estás?
+Te escribo para saber si pudiste ver la info sobre Finca Propia 🍇
+Si querés, la retomamos cuando te quede cómodo.`, 
+    unavailable: false 
+  },
+  { 
+    id: 3, 
+    name: "pudiste_evaluar_la_propuesta", 
+    description: `¡Hola! ☺️ Quería consultarte si tuviste oportunidad de ver la propuesta que te enviamos .
+Si te interesa avanzar, podemos coordinar una mini charla o mandarte más detalles sobre las formas de participación y costos actualizados. ¡Muchas gracias!`, 
+    unavailable: false 
+  },
+  { 
+    id: 2, 
+    name: "saludo_inicial", 
+    description: `¡Hola! Qué bueno que te interesó Finca Propia 🙌🏻
+Es un proyecto único donde podés tener tus propias plantas de vid en Mendoza, seguir todo el proceso de elaboración del vino y recibir botellas hechas con tus uvas 🍇🍷
+Une vino, naturaleza y comunidad de una manera muy especial.
+¿Querés que te cuente brevemente cómo funciona y qué incluye ser parte?`, 
+    unavailable: false 
+  },
+  { 
     id: 1, 
     name: "plantillaEjemplo", 
     description: `A partir de ahora podés acceder a beneficios inéditos! 
