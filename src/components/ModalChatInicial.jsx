@@ -24,7 +24,7 @@ Si te interesa avanzar, podemos coordinar una mini charla o mandarte más detall
   },
   { 
     id: 2, 
-    name: "saludo_inicial", 
+    name: "saludo_inicial_", 
     description: `¡Hola! Qué bueno que te interesó Finca Propia 🙌🏻
 Es un proyecto único donde podés tener tus propias plantas de vid en Mendoza, seguir todo el proceso de elaboración del vino y recibir botellas hechas con tus uvas 🍇🍷
 Une vino, naturaleza y comunidad de una manera muy especial.

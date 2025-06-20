@@ -117,6 +117,7 @@ const ChatsProvider = ({ children }) => {
   };
 
   const submitChatInicial = async (chat) => {
+    console.log("Entrando a submitChatInicial====> chat es:", chat);
     try {
       setChatInicial(chat);
       const salida = [];
@@ -142,6 +143,7 @@ const ChatsProvider = ({ children }) => {
       const url = `https://fincapropia.createch.com.ar/pruebas/mensaje-inicial?telefono=${chat.telefono}&condicion=${chat.condicion}&operador=${usuario._id}&categoria=${chat.categoria}`
       const { data } = await axios.post(url,objeto);
 
+     /*  console.log("Respuesta del backend al enviar el mensaje inicial:data===>", data); */
       /* ${process.env.VITE_BACKEND_URL} */
 
       const index = chats.findIndex(

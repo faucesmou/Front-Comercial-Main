@@ -8,8 +8,8 @@ import { jwtDecode } from "jwt-decode";
 
 const Item = ({ chat }) => {
 
-  console.log('el chat recibido ES-->', chat)
-  console.log('el chat msg ES----------------###>', chat.msg)
+  /* console.log('el chat recibido ES-->', chat) */
+ /*  console.log('el chat msg ES----------------###>', chat.msg) */
   const [noti, setNoti] = useState();
   const [flag, setFlag] = useState(false);
   const {
