@@ -158,14 +158,14 @@ const ModalChatInicial = () => {
       return;
     }
 
-    if (!regex.test(telefono)) {
+  /*   if (!regex.test(telefono)) {
       setAlerta({
-        // msg: "El número debe tener al menos 13 caracteres",
+       
         msg: "El número no cumple con el siguiente formato 549{10}",
         error: true,
       });
       return;
-    }
+    } */
 
     if(selected.name === "coti cuyo" && (platinum <= 1000 || black <= 1000 || titanium <= 1000)){
       setAlerta({
