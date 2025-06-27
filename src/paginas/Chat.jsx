@@ -31,7 +31,41 @@ const operadores = [
   "673361c5dd2e609c5d217237", //Gonza Morresi
 ]
 
+
+/* CADA VEZ QUE SE CAMBIE UN OPERADOR O MODIFIQUE EDITE DEBE AGREGARSE EN ESTE ARRAY: */
 const usuarios = [
+  {
+    id: "63ade3a73abf97575a693496",
+    nombre: "Marcelo Marino"
+  },
+  {
+    id: "6835ccf94c87a90dc940e407",
+    nombre: "Cande Sanchez"
+  },
+  {
+    id: "6835cd4e4c87a90dc940e523",
+    nombre: "Gino Cornejo"
+  },
+  {
+    id: "6807c3d95edc3bb618f5444b",
+    nombre: "Santiago Mas"
+  },
+  {
+    id: "67c21551b8fa93039e1a6224",
+    nombre: "Marcela"
+  },
+  {
+    id: "67db0d50afb285b405f8263a",
+    nombre: "Agustina Sureda"
+  },
+  {
+    id: "673361c5dd2e609c5d217237",
+    nombre: "Gonzalo Morresi"
+  },
+  
+]
+/* Este estaba antes de la prueba_ */
+/* const usuarios = [
   {
     id: "63ade3a73abf97575a693496",
     nombre: "Marcelo Marino"
@@ -52,36 +86,12 @@ const usuarios = [
     id: "67db0d50afb285b405f8263a",
     nombre: "Agustina Sureda"
   },
-/*   {
-    id: "66a7edce1508ebca4070a637",
-    nombre: "Jofre Jessica"
-  },
-  {
-    id: "66a7ee201508ebca4070a7d8",
-    nombre: "Rojo Yesica"
-  },
-  {
-    id: "66a7eea51508ebca4070a9c8",
-    nombre: "Lopez Mariela"
-  },
-  {
-    id: "66a7ef3f1508ebca4070acef",
-    nombre: "Garcia Florencia"
-  },
-  {
-    id: "66a7ef931508ebca4070ae26",
-    nombre: "Loiero Mariela"
-  },
-  {
-    id: "66e43a8a9abfee773069c98e",
-    nombre: "prueba"
-  }, */
   {
     id: "673361c5dd2e609c5d217237",
     nombre: "Gonzalo Morresi"
   },
   
-]
+] */
 
 /* EN ESTE ARCHIVO TENEMOS EL HEADER CON LAS OPCIONES  */
 
@@ -375,11 +385,18 @@ const Chat = () => {
 
   const salida = [mensaje.trim()];
   const objSalida = {
-    operador: user.nombre,
+    operador: user._id || "Operador Desconocido",
     msjSalida: salida,
     from: id,
   };
+ /*  const objSalida = {
+    operador: user.nombre,
+    msjSalida: salida,
+    from: id,
+  }; */
+
   socket.emit("msj-salida", objSalida);
+
   console.log("Llegando a enviarMsj con el objeto:", objSalida);
   enviarMsj(objSalida); 
  console.log("Saliendo de enviarMsj---------------->>>>:");
